@@ -1,16 +1,15 @@
 ZSH=$HOME/.oh-my-zsh
 
-<<<<<<< HEAD
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="robbyrussell"
-=======
 # You can change the theme with another one:
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="agnoster"
->>>>>>> 59bca4d (My identity for @lewagon in the gitconfig)
+
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
+# DEFAULT_USER="Bryan Leighton"prompt_context(){}
+# Useful plugins for Rails development with Sublime Text
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
