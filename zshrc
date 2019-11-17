@@ -9,6 +9,9 @@ ZSH_THEME="robbyrussell"
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
+
+VSCODE=code-insiders
+
 # Useful plugins for Rails development with Sublime Text
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
