@@ -67,6 +67,9 @@ type -a nvm > /dev/null && load-nvmrc
 # Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 
+# autoload compinit for kubectx and kubens
+autoload -U compinit && compinit
+
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
