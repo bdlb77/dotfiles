@@ -16,7 +16,14 @@ VSCODE=code
 alias code="code ."
 # Useful plugins for Rails development with Sublime Text
 
-# (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
+
+# kube ps1 
+export KUBE_PS1_ENABLED="true"
+# export KUBE_PS1_COLOR_SYMBOL="%{\e[38;5;27m%}"
+# export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
+# export KUBE_PS1_COLOR_NS="%{$fg[black]%}"
+PROMPT=$PROMPT'$(kube_ps1) '
+# Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 
 # Disable warning about insecure completion-dependent directories
@@ -24,7 +31,6 @@ ZSH_DISABLE_COMPFIX=true
 
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
-PROMT=$PROMT'$(kube_ps1) '
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 
@@ -68,6 +74,8 @@ type -a nvm > /dev/null && load-nvmrc
 # So instead of running `bin/rails` like the doc says, just run `rails`
 # Same for `./node_modules/.bin` and nodejs
 export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
+export GOPATH=$HOME/go
+export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
 
 # autoload compinit for kubectx and kubens
 autoload -U compinit && compinit
