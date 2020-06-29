@@ -11,7 +11,7 @@
 
 [core]
   pager = less -FRSX
-	editor = subl -n -w  >/dev/null 2>&1
+	editor = code --wait
 
 [alias]
   g = git
@@ -41,7 +41,10 @@
 
 [help]
   autocorrect = 1
-
+[diff]
+  tool = default-difftool
+[difftool "default-difftool"]
+  cmd = code --wait --diff $LOCAL $REMOTE
 [push]
 	default = simple
 
@@ -50,3 +53,5 @@
 [user]
 	email = bryan.leigh77@gmail.com
 	name = bryan leighton
+[http]
+	proxy = 
