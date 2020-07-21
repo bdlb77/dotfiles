@@ -61,3 +61,4 @@ export BUNDLER_EDITOR="code $@ >/dev/null 2>&1 -a"
 # BROWSER DIAPLY
 export DISPLAY=:0
 export BROWSER="/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
