@@ -11,7 +11,10 @@
 
 [core]
   pager = less -FRSX
-	editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+  editor = code-insiders -w -n
+
+# [rebase]
+#   instructionFormat = %s [%an] # add the commit author to the end of each line
 
 [alias]
   g = git
