@@ -11,6 +11,7 @@ plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting his
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
 VSCODE=code-insiders
 # Useful plugins for Rails development with Sublime Text
+<<<<<<< HEAD
 
 
 # kube ps1 
@@ -19,6 +20,9 @@ export KUBE_PS1_ENABLED="true"
 # export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
 # export KUBE_PS1_COLOR_NS="%{$fg[black]%}"
 PROMPT=$PROMPT'$(kube_ps1) '
+=======
+plugins=(kubectl kube-ps1 gitfast git last-working-dir common-aliases sublime vscode zsh-syntax-highlighting history-substring-search node npm z)
+>>>>>>> 45b6881 (gitconfig)
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 
@@ -73,7 +77,7 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 # SET GO Path
-export GOPATH="/Users/bryanleighton/code/bdlb77/go"
+export GOPATH="/Users/brleight/code/go"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
