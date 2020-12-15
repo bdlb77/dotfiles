@@ -12,6 +12,7 @@
 [core]
   pager = less -FRSX
   editor = code-insiders -w -n
+  excludesfile = /Users/brleight/code/bdlb77/dotfiles/.gitignore_global
 
 # [rebase]
 #   instructionFormat = %s [%an] # add the commit author to the end of each line
@@ -57,4 +58,4 @@
 	email = bryan.leigh77@gmail.com
 	name = bryan leighton
 [http]
-	proxy = 
+	proxy =

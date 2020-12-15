@@ -38,8 +38,3 @@ DEFAULT_USER=brleight
 #     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
 #   fi
 # }
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-eval "$(pyenv init -)"
-pyenv shell 3.8.5
