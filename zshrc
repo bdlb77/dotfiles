@@ -38,3 +38,24 @@ DEFAULT_USER=brleight
 #     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
 #   fi
 # }
+
+. /usr/local/opt/asdf/asdf.sh
+
+# NODE PATH
+export NODE_PATH="$(npm root -g)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/brleight/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/brleight/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/brleight/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/brleight/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
