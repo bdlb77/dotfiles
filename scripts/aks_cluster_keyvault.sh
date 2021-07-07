@@ -5,6 +5,9 @@ if [ "$#" -eq 0 ]; then
   exit 0
 fi
 
+# tr: Illegal byte sequence
+export LC_ALL=C
+
 export RG_NAME=$1
 export CLUSTER_NAME=$2
 export K8S_V=${3:-'1.18.2'}

@@ -5,7 +5,7 @@ ZSH_THEME="agnoster"
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
 VSCODE=code-insiders
 # Useful plugins for Rails development with Sublime Text
-plugins=(kubectl kube-ps1 gitfast git last-working-dir common-aliases sublime vscode zsh-syntax-highlighting history-substring-search)
+plugins=(kubectl kube-ps1 gitfast git last-working-dir common-aliases sublime vscode zsh-syntax-highlighting history-substring-search node npm z)
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 # Actually load Oh-My-Zsh
@@ -28,14 +28,34 @@ export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin"
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 # SET GO Path
-export GOPATH="/Users/bryanleighton/code/bdlb77/go"
+export GOPATH="/Users/brleight/code/go"
 # Encoding stuff for the terminal
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
-  fi
-}
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
+DEFAULT_USER=brleight
+# prompt_context() {
+#   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+#     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+#   fi
+# }
+
+. /usr/local/opt/asdf/asdf.sh
+
+# NODE PATH
+export NODE_PATH="$(npm root -g)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/brleight/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/brleight/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/brleight/miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/brleight/miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
