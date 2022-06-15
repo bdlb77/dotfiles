@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="agnoster"
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
-VSCODE=code-insiders
+VS_CODE=code
 # Useful plugins for Rails development with Sublime Text
 plugins=(kubectl kube-ps1 gitfast git last-working-dir common-aliases sublime vscode zsh-syntax-highlighting history-substring-search node npm z)
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
@@ -39,23 +39,16 @@ DEFAULT_USER=brleight
 #   fi
 # }
 
-. /usr/local/opt/asdf/asdf.sh
 
 # NODE PATH
 export NODE_PATH="$(npm root -g)"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/brleight/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/brleight/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/brleight/miniconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/brleight/miniconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export PATH="$HOME/.poetry/bin:$PATH"
