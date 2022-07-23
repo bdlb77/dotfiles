@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 # You can change the theme with another one:
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 
@@ -11,7 +11,6 @@ plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting his
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
 VSCODE=code-insiders
 # Useful plugins for Rails development with Sublime Text
-<<<<<<< HEAD
 
 
 # kube ps1 
@@ -20,9 +19,6 @@ export KUBE_PS1_ENABLED="true"
 # export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
 # export KUBE_PS1_COLOR_NS="%{$fg[black]%}"
 PROMPT=$PROMPT'$(kube_ps1) '
-=======
-plugins=(kubectl kube-ps1 gitfast git last-working-dir common-aliases sublime vscode zsh-syntax-highlighting history-substring-search node npm z)
->>>>>>> 45b6881 (gitconfig)
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 
