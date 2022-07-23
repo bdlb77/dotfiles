@@ -9,7 +9,7 @@ ZSH_THEME="agnoster"
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
 plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
 # DEFAULT_USER="Bryan Leighton"prompt_context(){}
-VSCODE=code-insiders
+VSCODE=code
 # Useful plugins for Rails development with Sublime Text
 
 
