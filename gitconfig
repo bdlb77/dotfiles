@@ -63,3 +63,6 @@
 
 [init]
   defaultBranch = master
+[user]
+	name = Bryan Leighton
+	email = bryan.leigh77@gmail.com
