@@ -13,12 +13,13 @@ VSCODE=code
 # Useful plugins for Rails development with Sublime Text
 
 
-# kube ps1 
-export KUBE_PS1_ENABLED="true"
-# export KUBE_PS1_COLOR_SYMBOL="%{\e[38;5;27m%}"
-# export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
-# export KUBE_PS1_COLOR_NS="%{$fg[black]%}"
-PROMPT=$PROMPT'$(kube_ps1) '
+# # kube ps1 
+# export KUBE_PS1_ENABLED="true"
+# # export KUBE_PS1_COLOR_SYMBOL="%{\e[38;5;27m%}"
+# # export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
+# # export KUBE_PS1_COLOR_NS="%{$fg[black]%}"
+# PROMPT=$PROMPT'$(kube_ps1) '
+
 # Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
 
