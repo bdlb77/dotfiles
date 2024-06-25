@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # You can change the theme with another one from https://github.com/robbyrussell/oh-my-zsh/wiki/themes
-ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 # You can change the theme with another one:
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 
@@ -13,7 +13,7 @@ VSCODE=code
 # Useful plugins for Rails development with Sublime Text
 
 
-# # kube ps1 
+# # kube ps1
 # export KUBE_PS1_ENABLED="true"
 # # export KUBE_PS1_COLOR_SYMBOL="%{\e[38;5;27m%}"
 # # export KUBE_PS1_COLOR_CONTEXT="%{$fg[black]%}"
@@ -26,7 +26,7 @@ export HOMEBREW_NO_ANALYTICS=1
 # Disable warning about insecure completion-dependent directories
 ZSH_DISABLE_COMPFIX=true
 
-# Actually load Oh-My-Zsh
+# # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 unalias rm # No interactive rm by default (brought by plugins/common-aliases)
 unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
