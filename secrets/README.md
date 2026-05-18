@@ -1,22 +1,33 @@
 # `secrets/` — 1Password-backed env vars via Varlock
 
 This directory holds **schema** for environment secrets. Real values live in
-1Password and are resolved at runtime by [Varlock](https://varlock.dev/) via
-the `@varlock/1password-plugin` (uses the `op` CLI under the hood with
-Touch ID / desktop-app authentication).
+1Password (organized in a **1Password Environment**) and are resolved at
+runtime by [Varlock](https://varlock.dev/) via the `@varlock/1password-plugin`
+(uses the `op` CLI under the hood with Touch ID / desktop-app authentication).
+
+> ⚠️ **Beta `op` CLI required.** Because we use `opLoadEnvironment()` with
+> desktop-app auth on a Personal/Family 1Password plan (no Service Accounts),
+> the BETA `op` CLI (≥ 2.33.0) is required. The Brewfile intentionally does
+> NOT manage `1password-cli`. See the comment block in `Brewfile` for install
+> steps. Verify with `op --version` — should show `x.y.z-beta.n`.
 
 ## Files
 
-- `.env.schema` — committed; declares each env var with type, sensitivity, and
-  a `op(op://vault/item/field)` reference.
+- `.env.schema` — committed; declares each env var with type and sensitivity.
+  Values come from the 1Password Environment via `@setValuesBulk`.
 - `.env.local` — gitignored; per-machine overrides (if needed).
 
 ## One-time setup per machine
 
-1. Install 1Password desktop app + sign in (already installed if you ran `bootstrap.sh`)
-2. 1Password app → **Settings → Developer** → enable **"Integrate with 1Password CLI"**
-3. Verify: `op whoami` should return your account
-4. Verify Varlock can resolve: `varlock load --env-file .env.schema`
+1. Install 1Password desktop app + sign in (cask in `Brewfile`)
+2. Install the BETA `op` CLI (see Brewfile comment block; brew doesn't manage it)
+3. Point brew's symlink at the beta:
+   ```sh
+   ln -sfn /usr/local/bin/op /opt/homebrew/bin/op
+   ```
+4. 1Password app → **Settings → Developer** → enable **"Integrate with 1Password CLI"**
+5. Verify: `op --version` (should show beta), then `op env list` (should list your env)
+6. Render Zed: `make render-zed`
 
 ## Usage
 
