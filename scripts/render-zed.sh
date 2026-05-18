@@ -23,11 +23,8 @@ err() { echo "Error: $*" >&2; }
 # --- preflight ---
 command -v varlock >/dev/null 2>&1 || { err "varlock not installed. brew install varlock"; exit 1; }
 command -v op      >/dev/null 2>&1 || { err "1Password CLI not installed. brew install --cask 1password-cli"; exit 1; }
-op whoami >/dev/null 2>&1 || {
-  err "1Password CLI is not signed in. Run: op signin"
-  err "Also enable: 1Password app > Settings > Developer > 'Integrate with 1Password CLI'"
-  exit 1
-}
+# Note: we don't `op whoami` here. With desktop-app integration each `op` call
+# may prompt for Touch ID; whoami doesn't and can falsely report "not signed in".
 
 # --- render ---
 mkdir -p "$(dirname "$DST")"
