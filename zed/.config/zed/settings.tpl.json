@@ -26,13 +26,13 @@
 		"mcp-server-github": {
    "enabled": true,
 			"settings": {
-				"github_personal_access_token": "op://Personal/GitHub PAT/token",
+				"github_personal_access_token": "${GITHUB_TOKEN}",
 			},
 		},
 		"mcp-server-figma": {
    "enabled": true,
 			"settings": {
-				"figma_api_key": "op://Personal/Figma/api_key",
+				"figma_api_key": "${FIGMA_KEY_OSU}",
 			},
 		},
 	},
