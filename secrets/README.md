@@ -67,6 +67,33 @@ fi
    ```
 4. Commit. The reference is safe to commit — only the resolved value is secret.
 
+## Pre-commit leak protection
+
+A `pre-commit` git hook (`.git/hooks/pre-commit`, NOT tracked since it's
+per-clone) runs `varlock scan --staged` before every commit. It:
+
+- Resolves every `@sensitive` value from this schema (Touch ID via 1Password)
+- Scans every staged file for plaintext copies of those values
+- **Blocks the commit if any match is found**, showing file/line/var
+
+### Setup on a fresh clone of this repo
+```sh
+cd ~/dotfiles
+varlock scan --install-hook
+# then replace .git/hooks/pre-commit with the version that uses
+# --staged --path secrets/ (see install steps in bootstrap)
+```
+
+### Bypass for a single commit (emergencies only)
+```sh
+git commit --no-verify
+```
+
+### Caveat
+The hook requires Varlock + `op` to resolve the schema. If 1Password is locked
+or `op` isn't signed in, the scan can't compare against real values and may
+let leaks through. Keep 1Password unlocked when committing.
+
 ## Why Varlock + 1Password (not SOPS, not gitignored .env)
 
 | Approach | Pros | Cons |

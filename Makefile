@@ -3,12 +3,12 @@
 DOTFILES := $(shell pwd)
 STOW_PACKAGES := git zsh ssh mise starship ghostty tmux nvim opencode ruby
 
-.PHONY: help install stow unstow restow render-zed mise-install brew-bundle update clean
+.PHONY: help install stow unstow restow render-zed mise-install brew-bundle update clean install-hook scan
 
 help: ## Show this help
 	@awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*##/ {printf "  \033[36m%-18s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-install: brew-bundle stow mise-install render-zed ## Full setup (idempotent)
+install: brew-bundle stow mise-install render-zed install-hook ## Full setup (idempotent)
 
 stow: ## Symlink all stow packages into $HOME
 	@for pkg in $(STOW_PACKAGES); do \
@@ -40,3 +40,11 @@ update: ## Pull latest, re-stow, update tools
 clean: ## Remove generated/local files (keeps git history)
 	@rm -f ~/.config/zed/settings.json
 	@echo "Removed rendered Zed settings. Re-run: make render-zed"
+
+install-hook: ## Install varlock pre-commit hook (catches secret leaks)
+	@cp scripts/pre-commit.sh .git/hooks/pre-commit
+	@chmod +x .git/hooks/pre-commit
+	@echo "✓ Installed .git/hooks/pre-commit"
+
+scan: ## Manually run varlock scan over all (non-gitignored) files
+	@cd secrets && varlock scan ..
