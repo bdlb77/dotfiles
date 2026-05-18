@@ -1,0 +1,38 @@
+# ~/.config/mise/config.toml
+# mise is the single source of truth for language runtimes and most CLI tools.
+# Homebrew is only used for macOS apps and bootstrap utilities.
+# Docs: https://mise.jdx.dev/
+
+[tools]
+# --- Languages (pin minor; mise picks latest patch) ---
+python = "3.14"   # released Oct 2025; fallback handled by bootstrap if unavailable
+node   = "lts"
+ruby   = "3.4"
+go     = "1.24"
+rust   = "stable"
+bun    = "latest"
+deno   = "latest"
+
+# --- CLI tools (all "latest" = current stable) ---
+ripgrep  = "latest"
+fd       = "latest"
+fzf      = "latest"
+gh       = "latest"
+jq       = "latest"
+yq       = "latest"
+delta    = "latest"
+zoxide   = "latest"
+starship = "latest"
+eza      = "latest"
+bat      = "latest"
+lazygit  = "latest"
+tmux     = "latest"
+
+# --- Per-language package managers ---
+"npm:pnpm" = "latest"
+"npm:yarn" = "latest"
+
+[settings]
+experimental = true
+# Honor .python-version / .ruby-version / .nvmrc / .node-version files in projects
+idiomatic_version_file_enable_tools = ["python", "node", "ruby"]

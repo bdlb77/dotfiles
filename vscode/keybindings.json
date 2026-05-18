@@ -1,0 +1,25 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+shift+v",
+    "command": "pasteAndIndent.action",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+shift+v",
+    "command": "pasteAndIndent.action",
+    "when": "editorTextFocus && !editorReadonly"
+},
+{
+	"key": "shift+cmd+l",
+	"command": "aichat.newchataction"
+},
+{
+	"key": "cmd+l",
+	"command": "-aichat.newchataction"
+},
+{
+	"key": "cmd+i",
+	"command": "composerMode.agent"
+}
+]

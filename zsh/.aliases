@@ -1,0 +1,42 @@
+# ~/.aliases — shell aliases (sourced from .zshrc)
+
+# ---- Modern CLI replacements ----
+if command -v eza >/dev/null 2>&1; then
+  alias ls='eza --git --icons --group-directories-first'
+  alias ll='eza -l --git --icons --group-directories-first'
+  alias la='eza -la --git --icons --group-directories-first'
+  alias lt='eza --tree --level=2 --icons'
+  alias tree='eza --tree --icons'
+fi
+
+command -v bat >/dev/null 2>&1 && alias cat='bat --paging=never --style=plain'
+command -v fd  >/dev/null 2>&1 && alias find='fd'
+
+# ---- Git ----
+alias g='git'
+alias gs='git status -sb'
+alias gd='git diff'
+alias gco='git checkout'
+alias gcm='git commit -m'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias gl='git pull'
+alias glg='git lg'
+command -v lazygit >/dev/null 2>&1 && alias lg='lazygit'
+
+# ---- Tools ----
+alias oc='opencode'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
+# ---- Misc ----
+alias myip='curl -s https://ipinfo.io/json'
+alias serve='python3 -m http.server 8000'
+alias reload='exec zsh'
+alias path='echo $PATH | tr ":" "\n"'
+
+# ---- Safety ----
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'

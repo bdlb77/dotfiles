@@ -1,0 +1,140 @@
+{
+  // ---- Editor ----
+  "editor.tabSize": 4,
+  "editor.insertSpaces": false,
+  "editor.indentSize": "tabSize",
+  "editor.stickyTabStops": true,
+  "editor.fontSize": 16,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.minimap.enabled": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderControlCharacters": true,
+  "editor.rulers": [80, 120],
+  "editor.snippetSuggestions": "top",
+
+  // ---- Per-language ----
+  "[python]": {
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.bracketPairs": false,
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "[ruby]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
+  // ---- Emmet ----
+  "emmet.includeLanguages": { "erb": "html" },
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+
+  // ---- Files ----
+  "explorer.confirmDelete": false,
+  "files.hotExit": "off",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.exclude": {
+    "__pycache__": true,
+    "_site": true,
+    ".asset-cache": true,
+    ".bundle": true,
+    ".ipynb_checkpoints": true,
+    ".pytest_cache": true,
+    ".sass-cache": true,
+    ".svn": true,
+    "**/.DS_Store": true,
+    "**/.egg-info": true,
+    "**/.git": true,
+    "build": true,
+    "coverage": true,
+    "dist": true,
+    "log": true,
+    "node_modules": true,
+    "public/packs": true,
+    "tmp": true
+  },
+  "files.watcherExclude": {
+    "**/audits/**": true,
+    "**/coverage/**": true,
+    "**/log/**": true,
+    "**/node_modules/**": true,
+    "**/tmp/**": true,
+    "**/vendor/**": true
+  },
+  "search.exclude": {
+    "**/.venv": true
+  },
+
+  // ---- File nesting ----
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+    "Cargo.toml": "Cargo.lock",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.db": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*"
+  },
+
+  // ---- Notebooks ----
+  "notebook.diff.ignoreMetadata": true,
+  "notebook.lineNumbers": "on",
+  "notebook.markup.fontSize": 13,
+
+  // ---- Python (modern: Ruff replaces flake8/pylint/yapf/black) ----
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "standard",
+  "python.terminal.activateEnvironment": false,
+
+  // ---- TS/JS ----
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.experimental.useTsgo": true,
+  "svelte.enable-ts-plugin": true,
+
+  // ---- Workbench ----
+  "workbench.colorTheme": "Night Owl",
+  "workbench.settings.editor": "json",
+  "workbench.settings.openDefaultSettings": true,
+  "workbench.settings.useSplitJSON": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.panel.defaultLocation": "center",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.wav": "wavPreview.audioPreview"
+  },
+
+  // ---- Window ----
+  "window.restoreWindows": "none",
+  "window.newWindowDimensions": "maximized",
+
+  // ---- Misc ----
+  "telemetry.telemetryLevel": "off",
+  "security.workspace.trust.untrustedFiles": "open",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "chat.tools.urls.autoApprove": {
+    "https://trac.ffmpeg.org": {
+      "approveRequest": false,
+      "approveResponse": true
+    }
+  },
+  "chat.viewSessions.orientation": "stacked",
+  "chat.mcp.gallery.enabled": true
+}
