@@ -11,6 +11,11 @@ brew "stow"
 brew "git"
 brew "gh"   # also in mise; kept here so bootstrap works before mise install
 
+# ---- Secrets ----
+brew "varlock"             # schema-driven env loader with @ref(op://...) support
+cask "1password"           # vault (idempotent if already installed)
+cask "1password-cli"       # CLI integrates with desktop app via UNIX socket
+
 # ---- Zsh plugins (sourced from .zshrc) ----
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"

@@ -39,7 +39,7 @@ brew bundle --file="$DOTFILES/Brewfile"
 ok "Brew packages installed"
 
 # ---- 4. Stow packages ----
-STOW_PACKAGES=(git zsh ssh mise starship ghostty tmux nvim opencode zed ruby)
+STOW_PACKAGES=(git zsh ssh mise starship ghostty tmux nvim opencode ruby)
 
 log "Stowing packages into \$HOME..."
 mkdir -p "$HOME/.ssh"
@@ -117,6 +117,17 @@ fi
 # ---- 10. SSH key ----
 if [[ -f "$HOME/.ssh/id_ed25519" ]]; then
   ssh-add --apple-use-keychain "$HOME/.ssh/id_ed25519" 2>/dev/null || true
+fi
+
+# ---- 11. Render Zed settings from 1Password (requires `op` signed in) ----
+if command -v op >/dev/null 2>&1 && op whoami >/dev/null 2>&1; then
+  log "Rendering Zed settings from 1Password..."
+  "$DOTFILES/scripts/render-zed.sh" || warn "render-zed.sh failed (see message above)"
+else
+  warn "Skipping Zed render: 1Password CLI not installed or not signed in."
+  warn "  After installing 1Password app + enabling CLI integration:"
+  warn "    op signin"
+  warn "    $DOTFILES/scripts/render-zed.sh"
 fi
 
 print

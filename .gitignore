@@ -29,3 +29,8 @@ tmux/.config/tmux/plugins/
 opencode/.config/opencode/node_modules/
 opencode/.config/opencode/package-lock.json
 opencode/.config/opencode/bun.lock
+
+# Secrets — local-only env overrides (real values resolve from 1Password)
+secrets/.env.local
+secrets/.env
+.env.local
