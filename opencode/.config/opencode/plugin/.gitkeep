@@ -1,0 +1,4 @@
+# Opencode plugins go here.
+# See: https://opencode.ai/docs/plugins
+# Each plugin is a TypeScript/JavaScript file using @opencode-ai/plugin SDK
+# (already declared in ../package.json).

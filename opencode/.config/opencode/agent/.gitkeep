@@ -1,0 +1,9 @@
+# Opencode agents go here.
+# See: https://opencode.ai/docs/agents
+# Each agent is a markdown file with YAML frontmatter:
+#   ---
+#   description: "What this agent does (used for routing)"
+#   model: anthropic/claude-sonnet-4-5
+#   tools: { read: true, edit: true, bash: false }
+#   ---
+#   System prompt body...
