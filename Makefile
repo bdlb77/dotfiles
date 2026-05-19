@@ -3,7 +3,7 @@
 DOTFILES := $(shell pwd)
 STOW_PACKAGES := git zsh ssh mise starship ghostty tmux nvim opencode ruby
 
-.PHONY: help install stow unstow restow render-zed mise-install brew-bundle update clean install-hook scan
+.PHONY: help install stow unstow restow render-zed mise-install brew-bundle update clean install-hook scan secrets-refresh
 
 help: ## Show this help
 	@awk 'BEGIN {FS = ":.*##"} /^[a-zA-Z_-]+:.*##/ {printf "  \033[36m%-18s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -48,3 +48,7 @@ install-hook: ## Install varlock pre-commit hook (catches secret leaks)
 
 scan: ## Manually run varlock scan over all (non-gitignored) files
 	@cd secrets && varlock scan ..
+
+secrets-refresh: ## Bust the secret cache (forces next shell to re-resolve via Touch ID)
+	@rm -f "$${TMPDIR:-/tmp/}varlock-secrets-$$UID"
+	@echo "✓ Cleared secret cache. Next shell will re-resolve from 1Password."

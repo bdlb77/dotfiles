@@ -43,17 +43,30 @@ varlock run -- env | grep -E '^(GITHUB|OPENAI|ANTHROPIC)_'
 eval "$(varlock load --env-file ~/dotfiles/secrets/.env.schema --format=shell)"
 ```
 
-### Auto-load in `.zshrc.local` (optional)
-Add to `~/.zshrc.local` (gitignored):
+### Auto-load in every interactive shell (recommended)
+This repo ships `scripts/load-secrets.zsh`. Source it from `~/.zshrc.local`:
 ```sh
-# Load 1Password-backed secrets at shell start (only if op is signed in)
-if command -v varlock >/dev/null 2>&1 && op whoami >/dev/null 2>&1; then
-  eval "$(varlock load --env-file ~/dotfiles/secrets/.env.schema --format=shell 2>/dev/null)" || true
-fi
+source ~/code/bdlb77/dotfiles/scripts/load-secrets.zsh
 ```
 
-> Note: shell-startup auto-loading will trigger Touch ID prompts. Most people
-> prefer `varlock run --` per-command for sensitive vars.
+The loader **caches resolved secrets in `$TMPDIR/varlock-secrets-$UID`** (mode
+0600, owner-only) with a **1-hour TTL**. So:
+- One Touch ID prompt **per hour**, not per shell
+- New Ghostty splits / tmux panes / `cd`-spawned shells are instant (~50ms)
+- Cache cleared on reboot (lives in tmpfs)
+
+Override the TTL (e.g. 4 hours) by exporting `VARLOCK_CACHE_TTL=14400` before
+sourcing.
+
+To force a refresh now (e.g. after rotating a secret):
+```sh
+make secrets-refresh   # or: rm -f "$TMPDIR/varlock-secrets-$UID"
+```
+
+To opt out for a given shell:
+```sh
+SKIP_VARLOCK=1 zsh
+```
 
 ## Adding a new secret
 
