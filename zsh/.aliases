@@ -15,13 +15,61 @@ command -v fd  >/dev/null 2>&1 && alias find='fd'
 # ---- Git ----
 alias g='git'
 alias gs='git status -sb'
+alias gst='git status'
 alias gd='git diff'
-alias gco='git checkout'
+alias gds='git diff --staged'
+alias gdc='git diff --cached'
+
+# commit
+alias gc='git commit -v'
+alias gca='git commit -v --amend'
+alias gcan='git commit -v --amend --no-edit'
 alias gcm='git commit -m'
+alias gcam='git commit -a -m'
+
+# add
+alias ga='git add'
+alias gaa='git add --all'
+alias gap='git add --patch'
+
+# branch / checkout
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gbD='git branch -D'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcm-='git checkout -'
+alias gm='git checkout $(git defaultBranch)'   # checkout main/master
+
+# push / pull / fetch
 alias gp='git push'
 alias gpf='git push --force-with-lease'
+alias gpu='git push -u origin HEAD'
 alias gl='git pull'
+alias gf='git fetch'
+alias gfa='git fetch --all --prune'
+
+# log
 alias glg='git lg'
+alias glog='git log --oneline -20'
+
+# rebase / merge / stash
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
+alias gmrg='git merge'
+alias gss='git stash'
+alias gsp='git stash pop'
+alias gsl='git stash list'
+
+# reset / restore
+alias grh='git reset HEAD'
+alias grhh='git reset --hard HEAD'
+alias gunstage='git reset HEAD --'
+
+# misc
+alias gsweep='git sweep'
 command -v lazygit >/dev/null 2>&1 && alias lg='lazygit'
 
 # ---- Tools ----
